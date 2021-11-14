@@ -1,62 +1,24 @@
 <div class="d-flex card border-0 h-100">
   <div class="row p-0 m-0">
-    <div class="col-4 mt-2">
-      <div class="card" style="width: 18rem">
+    <div class="col-4 mt-2" *ngFor="let item of productList">
+      <div class="card h-100 w-100">
         <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+          [src]="item.image"
+          width="510px"
+          height="294px"
           class="card-img-top"
-          alt="Product Image"
+          [alt]="item.name"
         />
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+        <div class="card-body d-flex flex-column">
+          <p class="card-text font-weight-bold text-center text-primary">
+            <strong>{{ item.title }}</strong>
           </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 mt-2">
-      <div class="card" style="width: 18rem">
-        <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-          class="card-img-top"
-          alt="Product Image"
-        />
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 mt-2">
-      <div class="card" style="width: 18rem">
-        <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-          class="card-img-top"
-          alt="Product Image"
-        />
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 mt-2">
-      <div class="card" style="width: 18rem">
-        <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-          class="card-img-top"
-          alt="Product Image"
-        />
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+          <span class="text-center text-primary"
+            >Rating:
+            <span class="text-warning" style="font-size:22px;">
+              <ngb-rating [(rate)]="item.rating"></ngb-rating></span
+          ></span>
+          <span class="text-center text-primary">Price: <strong class="text-danger text-center" style="font-size: 25px;">${{item.price}}</strong></span>
         </div>
       </div>
     </div>
