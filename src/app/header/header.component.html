@@ -1,4 +1,4 @@
-<form class="example d-flex w-100">
-  <input type="text" placeholder="Search.." name="search" />
+<form class="example d-flex w-100" name="saerch">
+  <input type="text" name="product-list-root" [ngModel]="productName" placeholder="search" (ngModelChange)="onChange($event)" />
   <i class="fa fa-search"></i>
 </form>

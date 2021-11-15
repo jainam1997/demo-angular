@@ -1,6 +1,6 @@
-<div class="d-flex mt-3 flex-column">
+<div class="d-flex pt-3 flex-column" style="background-color: #E0E0E0;">
   <div class="d-flex justify-content-center">
-    <header-root> </header-root>
+    <header-root (onSubmit)="onSubmit($event)"> </header-root>
   </div>
-  <home-root class="mt-3"></home-root>
+  <home-root [productName]="productname" class="pt-3"></home-root>
 </div>

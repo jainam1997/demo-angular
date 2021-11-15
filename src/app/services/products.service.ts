@@ -7,7 +7,7 @@ const data: IProduct[] = [
     1,
     'Calculator',
     'ORPAT OT-512GT',
-    'https://m.media-amazon.com/images/I/81-d0FG6XXL._SL1500_.jpg',
+    'https://m.media-amazon.com/images/I/81L3h-B64tL._AC_SS450_.jpg',
     15,
     4.5,
     'ORPAT'
@@ -43,7 +43,7 @@ const data: IProduct[] = [
     5,
     'Bread',
     'Country White bread',
-    'https://cdn.apartmenttherapy.info/image/upload/v1559145806/k/archive/da1984f6c88345e2461e2c49bafc7be633676d91.jpg',
+    'https://www.innit.com/public/products/images/00071330601533-ovKckC8UBI8JAoo4-en-US-0_s500.jpg',
     3,
     3.5,
     'ARNOLD'
@@ -111,14 +111,20 @@ const priceRange = [
   providedIn: 'root',
 })
 export class ProductsService {
+
   constructor() {}
 
   getProductList(): Observable<IProduct[]> {
     return of(data);
   }
 
-  getPriceRangeByProductName(productName: string): Observable<any[]> {
-    const ranges = priceRange.filter((p) => p.productName === productName);
-    return of(ranges);
+  getPriceRangeByProductName(productName: string[]): Observable<any[]> {
+    const ranges = priceRange.filter((p) => productName.map(s => s.toLowerCase()).includes(p.productName.toLowerCase()));
+    return of(ranges[0].range);
   }
-}
+
+  searchProductByName(productName: string): Observable<any[]> {
+    const response = data.filter(d => d.name.toLowerCase().indexOf(productName.toLowerCase()) > -1);
+    return of(response)
+  }
+ }

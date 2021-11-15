@@ -1,11 +1,14 @@
-<div class="d-flex card border-0 h-100">
+<div class="d-flex border-0 h-100">
   <div class="row p-0 m-0">
-    <div class="col-4 mt-2" *ngFor="let item of productList">
-      <div class="card h-100 w-100">
+    <div
+      class="col-4 mt-2 custom-box"
+      *ngFor="let item of productList"
+    >
+      <div class="card h-100 w-100 border-0">
         <img
           [src]="item.image"
-          width="510px"
-          height="294px"
+          width="250px"
+          height="250px"
           class="card-img-top"
           [alt]="item.name"
         />
@@ -15,10 +18,15 @@
           </p>
           <span class="text-center text-primary"
             >Rating:
-            <span class="text-warning" style="font-size:22px;">
+            <span class="text-warning" style="font-size: 22px">
               <ngb-rating [(rate)]="item.rating"></ngb-rating></span
           ></span>
-          <span class="text-center text-primary">Price: <strong class="text-danger text-center" style="font-size: 25px;">${{item.price}}</strong></span>
+          <span class="text-center text-primary"
+            >Price:
+            <strong class="text-danger text-center" style="font-size: 25px"
+              >${{ item.price }}</strong
+            ></span
+          >
         </div>
       </div>
     </div>
